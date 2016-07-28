@@ -1,7 +1,7 @@
 var child_process = require('child_process');
 
 exports.handler = function(event, context) {
-  var proc = spawn('./main', [ JSON.stringify(event) ], { stdio: 'inherit' });
+  var proc = child_process.spawn('./main', [ JSON.stringify(event) ], { stdio: 'inherit' });
 
   proc.on('close', function(code){
     if(code !== 0) {
